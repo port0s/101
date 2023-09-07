@@ -1,0 +1,1 @@
+304 HTTP = indica que não há necessidade de retransmitir a requisição de recursos
