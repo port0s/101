@@ -1,0 +1,10 @@
+InnoDB 
+é um mecanismo de armazenamento para o MySQL.
+O MySQL 5.5, e versões posteriores, o utilizam por padrão. 
+Ele fornece as funcionalidades padrões 
+de transação complacentes com ACID, 
+juntamente com o suporte a chave estrangeira 
+(Integridade Referencial Declarativa). 
+Ele é incluso como padrão 
+na maioria dos binários distribuídos pela MySQL AB, 
+sendo a exceção algumas versões OEM.

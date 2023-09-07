@@ -1,0 +1,37 @@
+polimorfismo paramétrico 
+é uma forma de se tornar uma linguagem mais expressiva, 
+enquanto continua mantendo toda sua tipagem estática segura. 
+
+Usando o polimorfismo paramétrico, 
+a função ou tipo de dado 
+pode ser escrita genericamente 
+para que possa suportar 
+valores idênticos 
+sem depender de seu tipo
+
+Essas funções e tipos de dados 
+são chamados:
+funções genéricas e tipos de dados genéricos 
+respectivamente e 
+formam a base da programação genérica.
+
+EX:
+  /*
+   * Dizemos que o tipo de 
+   *  "func" 
+   * é parametrizado por 
+   *  "a" 
+   * para todos os valores de 
+   *  "a"
+   */
+  func [a] x [a] -> [a], onde [a]
+
+  OBS: 
+    Note que como há apenas um único tipo de variável, 
+      "a" 
+    função não pode ser aplicada para qualquer par de listas: 
+    o par, 
+    assim como a lista resultante, 
+    deve consistir do mesmo tipo de elementos.
+
+

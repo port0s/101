@@ -1,0 +1,31 @@
+O uso de ponteiros para funções em C 
+serve principalmente para definir, 
+em tempo de execução, 
+qual função será executada, 
+sem a necessidade de escrever o nome da função, 
+de forma explícita naquele ponto do código.
+
+Em geral, 
+a definição de qual função será executada 
+é feita em um outro ponto do código, 
+fazendo o ponteiro apontar para a função desejada.
+
+```c
+  #include <stdio.h>
+  
+  void retorna_function_pointer( void (*function_pointer)(int) ) {
+    (*function_pointer)(10);
+  }
+  
+  void printa_dez(int dez) {
+    printf("%d\n", dez);
+  }
+  
+  int main(int argc, char *argv[])
+  {
+    retorna_function_pointer(&printa_dez);
+    return 0;
+  }
+```
+
+[PUCRS - Ponteiros Para Funções](https://www.inf.pucrs.br/~pinho/PRGSWB/PonteirosParaFuncoes/PonteirosParaFuncoes.html)

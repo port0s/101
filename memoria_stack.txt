@@ -1,0 +1,137 @@
+stack (pilha), 
+organização de dados na memória
+alocados (apontados) automáticamente em sequência e
+abandonados (em geral, não há desalocação)
+também automaticamente
+de maneira inversa a de entrada
+
+área da memória que aloca:
+dados/variáveis ou ponteiros 
+quando uma função é chamada e 
+desalocada quando a função termina.
+"memória local"
+
+Na stack se armazena
+
+Outra propriedade que faz a pilha ser rápida 
+é que todos os dados contidos nela 
+devem ocupar um tamanho fixo e conhecido.
+
+Como o ponteiro tem um tamanho fixo e conhecido, 
+podemos armazená-lo na pilha, 
+mas quando queremos os dados, 
+de fato, 
+temos que seguir o ponteiro.
+
+OBS_1: 
+  => stack
+    -> estático, 
+       alocação que ocorre junto a execução 
+       logo na sua carga (área "indisponível")
+
+    -> costuma ser alocado (apontado) na RAM
+
+  => dados alocados pelo stack
+    -> automático,
+       alocação e desalocação que ocorre
+       conforme o seu uso
+
+OBS_2: 
+  => decisão sobre onde alocar
+    -> Assim como no heap, 
+       não é possível alocar dados no stack 
+       antes de saber seu tamanho
+       (não precisa saber na hora de compilar, 
+        mas sim na hora de executar a alocação)
+
+
+# TIPOS DE PILHA
+  => Pilha de Execução
+    -> instruções e dados vão sendo empilhados
+       após execução de algo ali
+       ocorre o desempilhamento
+
+  => Pilha de Chamadas de Funções
+    -> funções vão sendo chamadas e empilhadas,
+       quando a execução termina
+       sai da pilha
+
+    -> armazena os endereços 
+       para onde o ponteiro da pilha (stack pointer)
+       deve retornar
+       quando a execução termina
+
+    -> OBS: se confunde ao gerenciamento de memória
+
+  => Pilha (Estrutura de Dados Genérica)
+    -> empilha dados diversos
+
+
+# ALOCAÇÂO
+=> o stack é alocado (apontado) 
+   no início da execução da aplicação, 
+   mais precisamente no início da thread 
+   (cada thread tem seu próprio stack,
+    e o tamanho do stack de cada thread criada 
+    pode ter seu tamanho definido antes da criação)
+   mesmo que a aplicação só tenha a thread principal.
+
+   O stack 
+   é uma porção contígua de memória 
+   reservada para empilhar os dados necessários 
+   durante a execução de blocos de código.
+
+   Cada necessidade de alocação (apontamento)
+   é um trecho do stack (stack frame) 
+   que vai sendo usado 
+   sempre em sequência determinada 
+   por um marcador (apontador)
+
+   Ponteiro (frame pointer), 
+   se "movimenta" para indicar que
+   uma nova parte na sequência, desta porção reservada,
+   está comprometida.
+   Se movimenta na direção contrária,
+   para indicar que alguns desses dados
+   podem ser descartados (sobrepostos por dados novos)
+
+   OBS: 
+    A alocação de cada trecho da memória 
+    NÃO EXISTE NO STACK, 
+    é apenas o movimento deste ponteiro 
+    indicando que aquela área 
+    será usada por algum dado.
+  
+   A alocação de cada trecho da memória
+   não existe no stack, 
+   é apenas o movimento deste ponteiro 
+   indicando que aquela área será usada por algum dado.
+
+
+# FUNCIONAMENTO
+  => LIFO (Last In First Out)
+    -> O escopo de uma variável 
+       costuma definir o tempo de alocação no stack
+
+    -> parâmetros e retorno de funções 
+       são alocados no stack.
+
+    -> Podemos dizer que os parâmetros:
+       são as primeiras variáveis de uma função 
+       alocadas no stack
+
+    -> Acesso costuma ser direto
+
+  => EX stack frame:
+        indisponível        indisponível        indisponível 
+    p ->     |        p ->  function args  p->  function args
+    p ->     |        p ->     return      p->     return
+    p ->     |        p ->       |         p-> variáveis locais
+    p ->     |        p ->       |         p->       |
+    p ->     |        p ->       |         p->       |
+    p ->   free       p ->      free       p->      free
+
+
+# REFERÊNCIAS
+https://pt.stackoverflow.com/questions/3797/o-que-s%C3%A3o-e-onde-est%C3%A3o-a-stack-e-heap
+https://blog.pantuza.com/artigos/heap-vs-stack

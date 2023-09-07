@@ -1,0 +1,23 @@
+exclusão mútua, mutex
+é uma propriedade do controle de concorrência
+uma técnica 
+usada em programação concorrente 
+para evitar que dois processos ou 
+threads 
+tenham acesso simultaneamente a um recurso compartilhado, 
+acesso esse denominado por:
+seção crítica (objeto de dados).
+
+Basicamente, 
+o requisito de um thread de execução 
+nunca entre em uma seção crítica (objeto de dados)
+enquanto um thread simultâneo de execução 
+já está acessando a seção crítica (objeto de dados), 
+que se refere a um intervalo de tempo
+durante o qual 
+um thread de execução 
+acessa um recurso compartilhado.
+
+
+# REFERÊNCIAS
+# Rust: Arc e Mutex -> https://stackoverflow.com/questions/33116317/when-would-you-use-a-mutex-without-an-arc

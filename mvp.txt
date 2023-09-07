@@ -1,0 +1,25 @@
+Model-view-presenter (MVP),
+Model 
+    (gerencia os dados, lógica e regras da aplicação),
+View 
+    (qualquer representação de informação),
+Presenter
+    (regras para a apresentação).
+
+O apresentador assume a funcionalidade de "intermediário".
+Toda a lógica de apresentação é enviada ao apresentador.
+
+
+modelo = 
+    interface que define os dados a serem exibidos ou 
+    de outra forma atuados na interface do usuário.
+
+visualização =
+    interface passiva que exibe dados (o modelo) e 
+    roteia comandos do usuário (eventos) 
+     para que o apresentador atue sobre esses dados.
+
+apresentador = 
+    atua no modelo e na visualização. 
+    Ele recupera dados de repositórios (o modelo) e 
+    os formata para exibição na visualização.

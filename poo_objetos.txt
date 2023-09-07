@@ -1,0 +1,6 @@
+Maneira como se abstrai um problema
+
+cracterísticas, atributos ou estados
+
+
+interface = protocolo = maneira como se comunica com um objeto

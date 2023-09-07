@@ -1,0 +1,12 @@
+O "OOM Killer" ou "Out of Memory Killer" 
+é um processo que o kernel do Linux utiliza 
+quando o sistema está criticamente com pouca memória. 
+Essa situação ocorre 
+porque os processos no servidor 
+estão consumindo uma grande quantidade de memória e 
+o sistema requer mais memória 
+para seus próprios processos e 
+para alocar a outros processos.
+
+# REFERÊNCIAS
+https://docs.memset.com/other/linux-s-oom-process-killer

@@ -1,0 +1,9 @@
+rest,
+conjunto de retrições, 
+regras delimitas, 
+protocolo de arquitetura, 
+para comunicação entre serviços
+
+Rest Full,
+aplicabilidade
+de rest.

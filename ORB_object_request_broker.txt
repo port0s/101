@@ -1,0 +1,20 @@
+object request broker (ORB)
+é um middleware 
+que permite a chamadas de programas serem feitas 
+de um computador 
+para outro 
+por meio de uma rede de computadores, 
+fornecendo transparência de localização 
+por meio de chamadas 
+de procedimento remoto
+
+Tratam da transformação de:
+estruturas de dados 
+em processo de 
+e 
+para a sequência de bytes bruta, 
+que é transmitida pela rede.
+Também chamada de:
+empacotamento ou
+serialização
+

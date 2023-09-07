@@ -1,0 +1,46 @@
+mônada,
+é uma abstração 
+que permite estruturar programas genericamente. 
+As linguagens de suporte 
+podem usar mônadas para abstrair o código clichê (wrapper)
+necessário para a lógica do programa. 
+As mônadas conseguem isso fornecendo 
+seu próprio tipo de dados 
+(um tipo específico para cada tipo de mônada), 
+que representa uma forma específica de computação, 
+junto com dois procedimentos:
+
+
+# EX
+  const juntar = (f, g) => (x) => f(g(x)); 
+
+  const _talvez = (valor) => ({
+      valor,
+      nada() {
+        return valor == null || valor == undefined;
+      },
+      ligar(fn) {
+        if (this.nada()){
+          return _talvez(null);
+        } else {
+          return _talvez(fn(this.valor));
+        }
+      }
+  });
+
+  const cubo = (monad) => monad.ligar(n => Math.pow(n, 3));
+  const raizQuadrada = (monad) => monad.ligar(n => Math.sqrt(n));
+  const cuboDaRaizQuadrada = juntar(cubo, raizQuadrada);
+
+  const x = _talvez(4);
+  console.log(cuboDaRaizQuadrada(x).valor); // 8
+  const y = _talvez(null);
+  console.log(cuboDaRaizQuadrada(y).valor); // null
+  const z = _talvez(undefined);
+  console.log(cuboDaRaizQuadrada(z).valor); // null
+
+
+# REFERÊNCIAS
+  https://www.treinaweb.com.br/blog/conceitos-de-linguagens-funcionais-uma-breve-introducao-aos-monads/
+  https://medium.com/tableless/programação-funcional-avançada-monads-em-javascript-862e8588fcdf#:~:text=Um Monad%2C resumidamente%2C é simplesmente,mas ainda faltam alguns detalhes.
+  https://pt.stackoverflow.com/questions/169700/o-que-é-e-para-que-serve-um-monad

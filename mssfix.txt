@@ -1,0 +1,259 @@
+# OPENVPN MTU: ENCONTRANDO AS CONFIGURAÇÕES CORRETAS
+
+Encontrar as configurações corretas de MTU e MSSFIX do OpenVPN
+pode realmente deixá-lo maluco.
+
+Não mesmo.
+É ridículo
+quantos problemas as configurações de MTU
+podem causar e
+quantas vezes as pessoas não percebem
+que MTU é realmente o que está causando o problema!
+
+---
+
+# MINHA EXPERIÊNCIA COM PROBLEMAS DE MTU DO OPENVPN
+
+Como muitos de vocês sabem,
+eu administro uma tonelada de VPNs.
+
+Eu uso uma combinação de OpenVPN e/ou WireGuard
+dependendo do que estou fazendo com ele.
+
+Geralmente eu uso o pfSense como meu firewall
+(embora às vezes um Ubiquiti Dream Machine Pro ).
+
+Principalmente,
+executo uma VPN entre amigos e familiares e
+uma VPN para nosso novo prédio,
+e todos esses locais têm câmeras de segurança AXIS
+que gravam em uma combinação de Synology local e remoto
+para vigilância por vídeo.
+
+Isso significa que há muito tráfego de câmera IP UDP
+atravessando a VPN.
+
+No começo com apenas uma ou duas câmeras
+notei que havia queda de quadros,
+mas não era o suficiente
+para importar ou causar uma degradação significativa
+no feed de vídeo.
+
+Mas depois que comecei a colocar 5, 6 ou 7 câmeras,
+percebi que as coisas se deteriorariam muito rapidamente.
+
+Os pacotes UDP seriam descartados como loucos,
+mas o tráfego TCP funcionaria perfeitamente.
+
+Então o que dá?
+
+---
+
+# TCP VS. UDP PARA OPENVPN
+
+Antes de corrigirmos nossos problemas de MTU do OpenVPN,
+vamos primeiro levar um minuto
+para entender a diferença entre UDP e TCP.
+
+Confie em mim,
+vale a pena entender isso e
+pode ter grandes impactos no desempenho geral da sua VPN.
+
+TCP
+é um acrônimo para Protocolo de Controle de Transmissão.
+UDP é
+um acrônimo para User Datagram Protocol.
+
+Embora não vamos entrar em todos os detalhes sangrentos
+das diferenças entre esses protocolos,
+há algumas coisas que são muito importantes para entender.
+
+Primeiro, o TCP cria uma sessão entre dois dispositivos e
+verifica se o pacote foi entregue.
+
+Se a resposta não for recebida
+dentro dos limites do TTL (time-to-live) definido,
+os dados serão retransmitidos.
+
+Isso garante a entrega mesmo em conexões instáveis.
+
+O UDP,
+por outro lado,
+é sem sessão.
+
+Ele simplesmente dispara um pacote pelo fio e
+espera pelo melhor.
+
+Se a outra extremidade nunca receber os dados,
+nada acontece,
+eles são simplesmente perdidos.
+
+No caso de transmissão de um arquivo
+como um documento do Word,
+se alguns dos dados não chegarem,
+o documento ficará corrompido e ilegível.
+
+No caso de streaming de música,
+você terá uma qualidade de som degradada por um segundo.
+
+É por isso que a maioria das transferências de arquivos
+usa TCP e a maioria dos streamings usa UDP.
+
+---
+
+# PADRÕES OPENVPN PARA UDP PARA O TÚNEL
+
+Agora pode ser um grande choque
+saber que o OpenVPN (e a maioria das VPNs)
+usa UDP para seu túnel!
+
+Isso é conversa de louco certo?
+O que você quer dizer com minha VPN pode perder dados?
+Loucura eu digo!
+
+Bem, na verdade faz todo o sentido.
+
+Se um aplicativo precisar de TCP,
+essa sessão TCP será encapsulada
+dentro da transmissão UDP do OpenVPN.
+
+E se o aplicativo detectar que um pacote não chegou...
+ele irá retransmitir normalmente.
+
+A VPN não precisa fazer isso
+Não há motivo para encapsular TCP em um túnel TCP!
+
+Na verdade, isso adiciona muita sobrecarga,
+pode causar problemas de jitter e latência e
+muitos outros comportamentos indesejáveis.
+
+No caso do UDP,
+se ele fosse se perder fora do túnel,
+ele ainda se perderia dentro do túnel.
+
+Se você está tendo problemas com pacotes perdidos,
+talvez o aplicativo deva estar usando TCP.
+
+Ou talvez você tenha um problema de MTU do OpenVPN (estamos chegando lá).
+
+Você nunca deve usar o TCP para o próprio túnel OpenVPN,
+a menos que tenha um desafio técnico específico a ser superado e
+entenda os impactos maiores.
+
+---
+
+# ENTENDENDO A PESSOA
+
+MTU
+é um acrônimo para
+Unidade Máxima de Transmissão.
+
+Simplificando, ele define o tamanho máximo de um pacote
+que atravessa a rede.
+
+Qualquer coisa maior que esse número
+deve ser dividida em vários pacotes.
+
+A MTU padrão para Ethernet é de 1500 bytes.
+
+Para que dois dispositivos se comuniquem corretamente,
+eles precisam saber esse número.
+
+Se transmitirem pacotes maiores que 1500 bytes,
+os pacotes serão descartados por um dos dispositivos da rede.
+
+No caso das configurações de MTU do OpenVPN,
+é importante perceber que estamos encapsulando dados e
+que a sobrecarga da VPN vai tirar um pouco do nosso MTU!
+
+Então aqui está o problema:
+“Meu OpenVPN funciona bem para o tráfego TCP,
+mas o tráfego UDP é muito problemático e
+só funciona às vezes.”
+
+Por que é isso?
+Porque o TCP tem muitos mecanismos para lidar com redes e
+vai diminuir seu tamanho máximo de segmento (MSS) e
+tentar novamente (retransmitir).
+
+UDP sendo acionado e esquecido
+nunca saberá que houve um problema e
+apenas continue disparando esses pacotes
+de tamanho grande
+no esquecimento para serem descartados pelo túnel VPN!
+
+No meu caso,
+isso se traduziu em sessões SSH e da Web
+funcionando perfeitamente,
+mas os fluxos de vídeo e VoIP
+em execução no túnel
+falhariam miseravelmente,
+resultando em gagueira e vídeo e áudio entrecortados.
+
+[ IMG ]
+
+---
+
+# CORRIGINDO PROBLEMAS DE MTU DO OPENVPN
+
+A primeira coisa que você precisa fazer
+para corrigir o problema do OpenVPN MTU
+é descobrir qual é o seu maior MTU.
+
+Você pode fazer isso usando o comando ping.
+“ ping -f ” diz ao ping para não fragmentar o pacote em nenhuma circunstância.
+
+“ ping -l ” informa ao ping o tamanho do pacote a ser usado.
+
+```
+    ping -f <IP of Device on other end of VPN> -l <MTU to test>
+    ping -f 192.168.100.1 -l 1500
+```  
+
+E você pode ver no nosso caso
+os pings falharam porque eram muito grandes
+para passar pelo nosso túnel VPN.
+
+Continue tentando o comando repetidamente.
+Cada vez diminua o tamanho do pacote (-l)
+em 10 até que os pings funcionem.
+
+Você pode ver que, no nosso caso,
+tivemos que descer para um pacote de 1450 bytes
+para obter dados para atravessar o túnel.
+
+Tanto no tamanho do cliente
+quanto do servidor e do servidor,
+fiz a seguinte alteração no Open VPN MTU: –tun-mtu 1450;
+
+Você pode fazer essa alteração no OpenVPN do pfSense
+na parte de configuração avançada da seguinte maneira:
+
+---
+
+# E QUANTO AO MSSFIX PARA OPENVPN?
+
+Muitas pessoas sugerirão configurar o MSSFIX
+para 40 bytes menor e também incluí-lo em sua declaração,
+pois alguns dispositivos não aprendem corretamente
+as configurações de MTU.
+
+MSSFIX é uma solução alternativa
+usada quando a descoberta de caminho MTU
+é interrompida por algum motivo.
+
+Meu conselho,
+tente o tun-mtu 1450 (ou qualquer que seja o seu túnel)
+sem o MSSFIX primeiro e
+veja se ele resolve seu problema primeiro.
+
+Apenas adicione MSSFIX se for absolutamente necessário.
+Mantenha simples.
+
+Se você precisar do MSSFIX,
+poderá adicioná-lo da seguinte forma: –tun-mtu 1450; –mssfix 1410;
+ou no pfSense da seguinte forma:
+
+# REFERÊNCIA
+https://www.thegeekpub.com/271035/openvpn-mtu-finding-the-correct-settings/
+

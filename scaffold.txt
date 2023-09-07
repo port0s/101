@@ -1,0 +1,11 @@
+Scaffolding, andaime
+Pode ser:
+  técnica de geração de código 
+  relacionada ao acesso de banco de dados 
+  em alguns frameworks model-view-controller (MVC)
+    EX: Python Django
+
+  técnica de geração de projeto 
+  suportada por várias ferramentas.
+    EX: Rust Cargo 
+

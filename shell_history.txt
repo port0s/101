@@ -1,0 +1,11 @@
+Em GNU, o sh (Bourne Shell) não é um shell expecífico,
+mas sim um shell de compatibilidade.
+
+Um shell restrito as expecificações,
+da norma POSIX
+
+Stephen Bourne (sh, 1977)
+Bill Joy (csh ou tcsh, 1978)
+David Korn (ksh, 1983)
+Brian Fox (bash, 1988)
+John Ousterhout (TCL, 1990-1991)

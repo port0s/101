@@ -1,0 +1,5 @@
+Abreviação de "macroinstrução" é uma regra ou padrão 
+que especifica como uma determinada entrada deve ser mapeada 
+para uma saída de substituição. 
+Aplicar uma macro a uma entrada é:
+uma expansão de macro

@@ -1,0 +1,36 @@
+Race condition,
+condição de corrida
+dois processos que competem pelo mesmo recurso
+
+Região crítica
+parte do programa que leva a uma condição de corrida
+
+Condições de execução
+    1. Não pode existir mais de um processo dentro de
+       uma mesma região crítica
+
+    2. Nada pode ser afirmado sobre a velocidade ou sobre o número de CPUs
+
+    3. Nenhum processo executado fora da sua região crítica
+       pode bloquear outros processos
+
+    4. Nenhum processo deve esperar eternamente para entrar
+       em sua região crítica
+
+
+                            "A" entra na Regição crítica     "A" deixa a região crítica
+Process A ─────────────── -                             -
+                          |        |        "B"         |            "B"             |          "B"
+                          |        |   tenta entrar     |  entra na região crítica   | deixa a região crítica
+                          |        | na região crítica  |                            |
+Process B ─────────────── |        -
+                          |        |  "B" é bloqueado   |                            |
+                          T1       T2                   T3                           T4
+
+
+# REFERÊNCIAS
+[Comunicação entre processos (Inter-Process Communication - IPC) - Parte 1](https://youtube.com/watch?=oz4jRuSImy0)
+[Comunicação entre processos (Inter-Process Communication - IPC) - Parte 2](https://youtube.com/watch?=K6bE7wqtX6w)
+[Comunicação entre processos (Inter-Process Communication - IPC) - Parte 3](https://youtube.com/watch?=Bz0hTrBlxdM)
+[Comunicação entre processos (Inter-Process Communication - IPC) - Parte 4](https://youtube.com/watch?=yNqvDJkMQc4)
+[Comunicação entre processos (Inter-Process Communication - IPC) - Parte 5](https://youtube.com/watch?=P7lmsKDb304)

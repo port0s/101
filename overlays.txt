@@ -1,0 +1,3 @@
+Overlays
+concatenação de arquivos,
+similar ao cat

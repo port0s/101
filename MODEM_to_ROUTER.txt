@@ -1,0 +1,25 @@
+MODEM 
+  converte o sinal entrando em sua casa da empresa Internet 
+  para uma conexão de dados de hard-line 
+  (para que você possa usar um cabo Ethernet 
+   para se conectar à Internet).
+
+
+ROTEADOR 
+  converte essa conexão de hard-line 
+  para uma conexão Wi-Fi de 2.4 GHz ou 4.8 GHz 
+  que seu dispositivo sem fio 
+  (como laptop, telefone celular) 
+  pode se conectar à Internet.
+
+
+Como conectar um roteador wifi a um roteador de modem de cabo
+  Desativar o servidor DHCP no seu novo roteador e 
+  conecte-o através de um cabo RJ-45 a seu modem. 
+
+  Basta configurar seu novo roteador 
+  como um ponto de acesso Wi-Fi. (Com WPA-keys e tais) 
+  Desativar a parte Wi-Fi do seu modem.
+
+[](https://turbofuture.com/internet/Difference-Between-Modem-and-Router-in-Home-Wifi)
+[](https://superuser.com/questions/150358/how-to-connect-a-wifi-router-to-a-cable-modem-router)

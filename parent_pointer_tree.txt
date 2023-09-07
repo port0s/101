@@ -1,0 +1,26 @@
+Parent Pointer-Tree
+árvore interna ou 
+árvore de ponteiros pai 
+é uma estrutura de dados de árvore N 
+na qual cada nó tem um ponteiro para seu nó pai, 
+mas nenhum ponteiro para nós filhos. 
+
+Quando usada para implementar um conjunto de pilhas, 
+a estrutura é chamada de pilha de espaguete, 
+pilha de cactos ou pilha de sahuaro 
+(em homenagem ao sahuaro, uma espécie de cacto). 
+
+Árvores de ponteiros pai também são usadas como estruturas de dados com conjuntos separados.
+
+
+Pilha de espaguete com uma moldura de pilha "ativa" destacada
+A estrutura pode ser considerada 
+como um conjunto de listas unidas individualmente 
+que compartilham parte de sua estrutura, 
+em particular, 
+suas caudas. 
+De qualquer nó, 
+pode-se atravessar para os ancestrais do nó, 
+mas não para qualquer outro nó.
+
+https://pt.stackoverflow.com/questions/13034/o-que-s%C3%A3o-escopo-l%C3%A9xico-e-escopo-din%C3%A2mico-e-quais-s%C3%A3o-suas-principais-diferen%C3%A7as#:~:text=O%20escopo%20l%C3%A9xico%20define%20o,execu%C3%A7%C3%A3o%20pela%20implementa%C3%A7%C3%A3o%20da%20linguagem.

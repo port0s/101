@@ -1,0 +1,17 @@
+Model–view–viewmodel,
+Model 
+    (gerencia os dados, lógica e regras da aplicação),
+View 
+    (qualquer representação de informação),
+ViewModel
+    (coordena as iterações da View com o Model)
+
+é um padrão de arquitetura de software 
+que facilita a separação do desenvolvimento 
+da interface gráfica do usuário (a visualização) 
+- seja por meio de uma linguagem de marcação ou 
+código GUI - do desenvolvimento 
+da lógica de negócios ou 
+lógica de back-end (o modelo) 
+para que a visualização não dependa de nenhuma plataforma ou
+modelo específico.

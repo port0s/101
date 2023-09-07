@@ -1,0 +1,95 @@
+Schemas ou
+Esquemas de Banco de Dados
+de um sistema de banco de dados (DBMS ou SGBD)
+é sua estrutura descrita em uma linguagem formal 
+suportada pelo sistema de gerenciamento de banco de dados e 
+refere-se à organização de dados 
+como um diagrama 
+de como um banco de dados é construído
+
+A partir do SQL Server 2005, 
+todo e qualquer objeto de banco de dados 
+deixou de pertencer a um usuário 
+para pertencer a um Schema. 
+Sendo assim, 
+o Schema é a ponte de associação entre 
+o usuário (ou grupo de usuários) e 
+um (ou mais) objeto(s) de banco.
+
+
+# VANTAGENS
+  => permissionamento de usuários e grupos. 
+     -> Quando um usuário é autorizado em um Schema, 
+        ele pode ser autorizado em vários bancos de dados 
+        ao mesmo tempo 
+        cujos objetos estejam inclusos dentro de um Schema.
+
+  => agrupamento físico dos dados. 
+     -> Alguns servidores, 
+        como as versões mais recentes do SQL Server, 
+        permitem que objetos de um mesmo Schema, 
+        mesmo que estejam divididos em várias bases de dados, 
+        sejam agrupados fisicamente para administração de backups e carga.
+
+
+# USO
+  => Em bases de dados com múltiplos bancos de dados 
+     (que tenham vários sistemas, por exemplo) e
+     seja necessário autorizar ou 
+     revogar usuários e grupos rapidamente.
+
+  => Em bases de dados 
+     cujo permissionamento seja característica essencial 
+     para a segurança dos dados 
+     (sistemas antigos cliente-servidor, 
+      por exemplo, 
+      que dependem muito da base de dados 
+      para implementação das regras de negócio
+     ).
+
+  => Em segmentação de dados por grupo de usuários. 
+     Você pode ter no mesmo database duas tabelas 
+     com o mesmo nome, 
+     estando cada uma em um Schema diferente.
+
+
+  => EX:
+      -> O usuário X tem acesso a todos os objetos 
+         relacionados a empresa
+       ________________   _________________
+      |  Funcionários  | |  Departamentos  |
+      |- id: bigint    | |- id: bigint     |
+      |- nome: varchar | |- nome: varchar  |
+      |________________| |_________________|
+                 ________________
+                |    Clientes    | 
+                |- id: bigint    |
+                |- nome: varchar |
+                |________________|
+
+      nesta caso, você teria que aplicar permissões 
+      a todos os objetos que ele tem acesso separadamente
+      Funcionários e Departamentos.
+
+      Com Schemas:
+
+      ________________________________________
+     |             Schema empresa             |
+     |  ____________________________________  |
+     | |  Funcionários  | |  Departamentos  | |
+     | |- id: bigint    | |- id: bigint     | |
+     | |- nome: varchar | |- nome: varchar  | |
+     | |____________________________________| |
+     |________________________________________|
+
+      ________________________________________
+     |             Schema cliente             |
+     |           ________________             |
+     |          |    Clientes    |            |
+     |          |- id: bigint    |            |
+     |          |- nome: varchar |            |
+     |          |________________|            |
+     |________________________________________|
+
+# REFERẼNCIAS:
+   https://pt.stackoverflow.com/questions/21031/o-que-s%C3%A3o-schemas-quais-as-vantagens-de-us%C3%A1-lo

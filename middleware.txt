@@ -1,0 +1,59 @@
+middleware, "encanamento"
+no contexto de aplicativos distribuídos 
+é um software 
+que fornece serviços 
+além daqueles fornecidos pelo sistema operacional 
+para permitir que:
+os vários componentes de um sistema distribuído 
+se comuniquem e gerenciem dados.
+
+Oferece suporte e 
+simplifica aplicativos distribuídos complexos 
+
+Dessa forma, 
+fornece um link entre app de software separados
+
+TIPOS:
+  => Middleware orientado a mensagens (MOM):
+    ->  é um middleware em que transações ou 
+        notificações de eventos 
+        são entregues entre sistemas ou 
+        componentes distintos por meio de mensagens 
+
+  => Middleware inteligente (IMW)
+    -> fornece inteligência em tempo real e 
+       gerenciamento de eventos 
+       por meio de agentes inteligentes
+  
+  => Middleware centrado em conteúdo
+    -> oferece uma abstração simples de:
+       provedor-consumidor, 
+       por meio da qual os aplicativos 
+       podem emitir solicitações 
+       para conteúdo identificado de maneira exclusiva, 
+       sem se preocupar com onde ou como ele é obtido
+
+       -> Chamada de procedimento remoto (Remote Procedure Call)
+        --> permite que um cliente use:
+            serviços em execução 
+            em sistemas remotos. 
+            O processo pode ser síncrono ou assíncrono.
+       
+       -> Agente de solicitação de objeto (Object Request Broker) 
+        --> é possível que os aplicativos enviem objetos e 
+            solicitem serviços em um sistema orientado a objetos.
+
+       -> Acesso a dados orientado a SQL (SQL-oriented data access)
+        --> é um middleware entre aplicativos e 
+            servidores de banco de dados.
+
+       -> Middleware embutido (Embedded middleware)
+        --> fornece serviços de comunicação e 
+            interface de integração de software/firmware 
+            que opera entre aplicativos integrados, 
+            o sistema operacional integrado e 
+            aplicativos externos.
+
+
+# REFERÊNCIAS
+https://en.m.wikipedia.org/wiki/Middleware_(distributed_applications)

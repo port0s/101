@@ -1,0 +1,3 @@
+Contrato é um nome dado a **Interfaces**,
+onde você consegue dizer
+quais funções serão necessárias para quem implementá-las.

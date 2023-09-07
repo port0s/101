@@ -1,0 +1,17 @@
+Read-eval-print loop
+
+Um loop de leitura-avaliação-impressão, 
+também denominado de nível superior interativo ou 
+shell de linguagem, 
+é um ambiente de programação de computador 
+interativo 
+simples 
+que recebe entradas
+de um único usuário, 
+as executa e 
+retorna o resultado ao usuário
+
+DEFINIÇÂO:
+    (define (REPL env)
+      (print (eval env (read)))
+      (REPL env) )

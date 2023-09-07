@@ -1,0 +1,57 @@
+Parâmetro 
+é a variável que irá receber um valor em uma função (ou método) 
+
+Argumento 
+é o valor (que pode originar de uma variável ou expressão) que você passa para a função (ou método).
+
+
+Você não passa parâmetros, você passa argumentos. 
+Você recebe argumentos também, mas recebe em parâmetros. 
+Você parametriza sua função com informações que virão posteriormente. 
+Você argumenta com o que deseja executar uma função devidamente parametrizada.
+
+Pode haver menos os mais argumentos para cada parâmetro 
+já que existem parâmetros que são opcionais e 
+outros que podem ser listas variáveis de dados. 
+
+Portanto não há uma relação de um para um e 
+a distinção entre eles é importante.
+
+Frequentemente é confundido por todos e 
+eu mesmo admito que intercambio os termos erroneamente, 
+mas para uma boa comunicação 
+é importante todos saberem o correto.
+
+Achei uma pergunta no SO com algumas respostas sobre o assunto.
+
+    void Func1(int i, bool flag = true) { //declarou dois parâmetros
+        // execução
+    }
+
+    void Func2(params int[] lista) { //declarou um parâmetro
+        //execução
+    }
+
+    void Func3(bool x, bool y) {
+        int z = 0;
+        Func1(1); //chamou com 1 argumento
+        Func1(z, x && y); //chamou com dois argumentos vindos de variável e expressão respectivamente
+        Func2(1, 2, 3); //chamou com 3 argumentos
+        Func1(flag : false, i : 2); //argumentos nomeados
+    }
+
+Coloquei no GitHub para referência futura.
+
+Lembrando que todos os parâmetros são nomeados. 
+Pelo menos é assim na maioria das linguagens. 
+O nome da variável é o nome do parâmetro.
+
+Em linguagens dinâmicas 
+a falta de relação direta entre parâmetros e argumentos 
+fica ainda mais evidente.
+
+Existem outras linguagens que possuem recurso semelhante. 
+É possível acessar os argumentos sem saber exatamente quais são os parâmetros.
+
+
+[Qual a diferença entre parâmetro e argumento?](https://pt.stackoverflow.com/questions/32448/qual-a-diferen%C3%A7a-entre-par%C3%A2metro-e-argumento#:~:text=Par%C3%A2metro%20%C3%A9%20a%20vari%C3%A1vel%20que,tamb%C3%A9m%2C%20mas%20recebe%20em%20par%C3%A2metros.)

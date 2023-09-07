@@ -1,0 +1,25 @@
+Polling, sondagem ou votação
+refere-se à amostragem ativa do status 
+de um dispositivo externo 
+por um programa cliente 
+como uma atividade síncrona.
+
+é mais frequentemente usado 
+em termos de input/output (I/O), 
+
+também referido como:
+polled I/O ou 
+software-driven I/O
+
+
+Basicamente, 
+processo em que o computador ou 
+dispositivo de controle 
+espera que um dispositivo externo 
+verifique sua prontidão ou estado, 
+geralmente com hardware de baixo nível. 
+
+Por exemplo, 
+quando uma impressora é conectada 
+por meio de uma porta paralela, 
+o computador espera até que a impressora receba o próximo caractere

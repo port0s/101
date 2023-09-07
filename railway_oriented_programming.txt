@@ -1,0 +1,18 @@
+railway oriented programming
+programação orientada para ferrovias
+é um modelo do mundo da programação funcional, 
+que tem o que fazer e não fazer, 
+o que pode e o que não pode fazer, 
+que resolvem categorias de preocupações com elegância. 
+OBS: este nome foi cunhado por Scott Wlaschin
+
+O principal objetivo 
+da programação orientada para ferrovias 
+é garantir que cada função ou 
+método 
+deva e 
+deva sempre 
+retornar um sucesso ou 
+uma falha. 
+Pense nisso como uma linha de trem típica, 
+vai para a esquerda ou para a direita.

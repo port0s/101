@@ -1,0 +1,220 @@
+Precisão Simples (32 bits -> 4 bytes)
+  Surgida nos processadores Inter Pentium
+  de 32 bits (4 bytes)
+
+  Fórmula:
+    +/-1,m1m2...m23*2^E == (-1)^Sinal*(1,M)*2^E 
+
+  Disposição da fórmula na máquina de 32 bits (4 bytes):
+  |  Sinal (+/-) | Característica (expoente + Bias) | Parte fracionário da mantissa
+  |    1 bit     |              8 bits              |             23 bits
+
+
+  OBS 1: Bias == significando == coeficiente de precisão
+  OBS 2: 
+    Bias == 127 
+      -> processadores Intel Pentium 32 poder ter bias variando entre:
+         127 ou 128
+
+
+EX 1 de conversão (Fracionado -> Binário)
+  1º decimal => binário
+     4,25 => 
+         4 == 101
+         0,25 * 2 == 0,5 -> 0,5 * 2 == 1 (encontrou 1, para)
+
+     4,25 => 4 == 101 | 0,25 == 01 (encontrou 1, para)
+     4,25 -> 100,01
+
+  2º colocar no formato:
+    |  Sinal (+/-) | Característica (expoente + Bias) | Parte fracionário da mantissa
+    |    1 bit     |              8 bits              |             23 bits
+
+    2.1º 
+      número positivo:
+        sinal == 0
+    2.2º 
+      mover a vírgula para deixar apenas um número mais à esquerda:
+        100,01 -> 1,0001
+      como a vírgula foi para a esquerda, o expoente será positivo
+        100,01 == 1,0001 * 2^2
+    2.3º
+      some o valor do expoente com o bias padrão da arquitetura (127)
+        127 + 2 == 129
+      o valor resultante será o número representado no segundo campo, em 8 bits
+         1   0   0   0  0  0  0  1
+        128 64  32  16  8  4  2  1
+    2.4º
+      complete a parte fracionária da mantissa, com a parte à direita da vírgula
+        parte à direita da vírgula
+          0001
+        Complemento referente ao número de bits necessários
+          0001 0000000000000000000
+
+    2.5º
+      |  Sinal (+/-) | Característica (expoente + Bias) | Parte fracionário da mantissa
+      |       0      |              10000001            |    00010000000000000000000
+
+
+EX 2 de conversão (Fracionado -> Binário)
+  1º decimal => binário
+     0,375 => 
+         0 == 0
+         0,375 * 2 == 0,750 -> 0,750 * 2 == 1 (encontrou 1, para)
+
+     0,375 => 0 == 0 | 0,375 == 011 (encontrou 1, para)
+     0,375 -> 0,011
+
+  2º colocar no formato:
+      |  Sinal (+/-) | Característica (expoente + Bias) | Parte fracionário da mantissa
+      |    1 bit     |              8 bits              |             23 bits
+  
+      2.1º 
+        número positivo:
+          sinal == 0
+      2.2º 
+        mover a vírgula para deixar apenas um número mais à esquerda:
+          0,011 -> 1,1
+        como a vírgula foi para a direita, o expoente será negativo
+          0,011 -> 1,1 * 2^-2
+      2.3º
+        some o valor do expoente com o bias padrão da arquitetura (127)
+          127 - 2 == 125
+        o valor resultante será o número representado no segundo campo, em 8 bits
+           0   1   1   1  1  1  0  1
+          128 64  32  16  8  4  2  1
+      2.4º
+        complete a parte fracionária da mantissa, com a parte à direita da vírgula
+          10000000000000000000000
+  
+      2.5º
+        |  Sinal (+/-) | Característica (expoente + Bias) | Parte fracionário da mantissa
+        |       0      |              01111101            |    10000000000000000000000
+
+
+EX 3 de conversão (Fracionado -> Binário)
+  1º decimal => binário
+     -5,25 => 
+         5 == 101
+         0,25 * 2 == 0,5 -> 0,5 * 2 == 1 (encontrou 1, para)
+
+     5,25 => 5 == 101 | 0,25 == 01 (encontrou 1, para)
+     5,25 -> 100,01
+
+  2º colocar no formato:
+    |  Sinal (+/-) | Característica (expoente + Bias) | Parte fracionário da mantissa
+    |    1 bit     |              8 bits              |             23 bits
+
+    2.1º 
+      número negativo:
+        sinal == 1
+    2.2º 
+      mover a vírgula para deixar apenas um número mais à esquerda:
+        100,01 -> 1,0001
+      como a vírgula foi para a esquerda, o expoente será positivo
+        100,01 == 1,0001 * 2^2
+    2.3º
+      some o valor do expoente com o bias padrão da arquitetura (127)
+        127 + 2 == 129
+      o valor resultante será o número representado no segundo campo, em 8 bits
+         1   0   0   0  0  0  0  1
+        128 64  32  16  8  4  2  1
+    2.4º
+      complete a parte fracionária da mantissa, com a parte à direita da vírgula
+        00010000000000000000000
+
+    2.5º
+      |  Sinal (+/-) | Característica (expoente + Bias) | Parte fracionário da mantissa
+      |       1      |              10000001            |    00010000000000000000000
+
+
+
+EX 1 de conversão (Binário -> Fracionado)
+  1º Identifique o formato dentro do binário:
+    01000001100000100000000000000000
+    |  Sinal (+/-) | Característica (expoente + Bias) | Parte fracionário da mantissa
+    |       0      |               10000011           |      00000100000000000000000
+
+  2º Identifique o sinal do bit de sinal
+      0 == positivo
+  
+  3º Identifique o número da característica
+       1    0  0  0  0  0  1  1  
+      128  64 32 16  8  4  2  1  -> 128 + 2 + 1 -> 130 + 1 -> 131
+  
+  4º Identifique o expoente (bias === padrão da arquitetura -> 127)
+      número da característica - bias = expoente
+            131 - 127 = 4
+
+  5º Encontre o número que compõe a parte fracionária da mantissa
+      Para tal, identifique cada número 1.
+      Lembre-se, como o número é positivo, isso significa que a vírgula foi deslocada para a esquerda.
+      Cada número dentro da parte fracionária da mantissa, equivale a: 2^-posição_do_número
+      Com o mais à esquerda sendo a posição 1 e o mais à direita sendo a posição 23
+         0    0    0    0    0    1   ...   0
+        2^-1 2^-2 2^-3 2^-4 2^-5 2^-6 ... 2^-23
+      
+        2^-6 == 0.015625
+
+  6º Aplique dentro do formato
+     (-1)^Sinal*(1,M)*2^E 
+     (-1)^0*(1,0.015625)*2^4 == 16,25
+
+    6.1º Em Python
+      (-1)**0 * (1 + 2**-6) * 2**4 == 16,25
+
+
+EX 2 outra forma de fazer (Binário -> Fracionado):
+  1º Identifique o formato dentro do binário:
+    01000001100000100000000000000000
+    |  Sinal (+/-) | Característica (expoente + Bias) | Parte fracionário da mantissa
+    |       0      |               10000011           |      00000100000000000000000
+
+  2º Identifique o sinal do bit de sinal
+      0 == positivo
+  
+  3º Identifique o número da característica
+       1    0  0  0  0  0  1  1  
+      129  64 32 16  8  4  2  1  -> 128 + 2 + 1 -> 130 + 1 -> 131
+  
+  4º Identifique o expoente
+      número da característica - bias = expoente
+            131 - 127 = 4
+
+  5º pegue o 1 da fórmula 1, coloque uma vírgula e todos os número da parte fracionária da mantissa após 1
+    1,00000100000000000000000
+
+  6º Desloque a vírgula em conformidade o bit de sinal, referindo ao expoente
+    bit de sinal == positivo -> desloca para a direita
+    expoente == 4 -> 4 casa para a direita
+    10000,0100000000000000000
+
+  7º Verifique cada número antes e após a vírgula
+      1 0 0 0 0 
+     16 8 4 2 1 ->  16
+    
+      0    1
+     2^-1 2^-2  ->  0,25
+
+
+
+Precisão Dupla (64 bits -> 8 bytes)
+  Surgida em 2008,
+  nas máquinas da familha Intel Core 
+  a partir do I7
+
+  Fórmula:
+    +/-1,m1m2...m52*2^E == (-1)^Sinal*(1,M)*2^E 
+
+  Disposição da fórmula na máquina de 64 bits (8 bytes):
+  |  Sinal (+/-) | Característica (expoente + Bias) | Parte fracionário da mantissa
+  |    1 bit     |             11 bits              |             52 bits
+
+  OBS 1: Bias == significando == coeficiente de precisão
+  OBS 2: Bias == 1023 
+
+
+REFERÊNCIAS
+[Padrão IEEE 754](https://www.youtube.com/watch?v=PDgT0T0Yodo)
+[[C99] Aula 109 - Ponto flutuante padrão IEEE 754](https://www.youtube.com/watch?v=M1gceBNFpjA)
+[16. Arquitetura de Computadores - IEEE 754]https://www.youtube.com/watch?v=ealNNf7lGoU)

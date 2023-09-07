@@ -1,0 +1,8 @@
+RSS feed
+realy simple sindication
+recurso utilizado para destribuir
+conteúdo em tempo real
+utilizando XML
+
+# REFERÊNCIAS
+[O que é um RSS Feed](https://www.youtube.com/watch?v=70EDDU1q_XI)

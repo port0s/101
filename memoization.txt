@@ -1,0 +1,92 @@
+memoization (memoização)
+é um termo usado por Donald Michie 
+em 1968 e 
+é derivado da palavra Latina 
+memorandum (ser lembrado). 
+
+Em termos práticos:
+É o cache do resultado de uma função, 
+baseado nos parâmetros de entrada.
+
+Ou ainda,
+"armazenar em cache o resultado 
+de uma função determinística"
+
+Ao chamar uma função 
+com determinados parâmetros, 
+se o resultado pedido já estiver no cache, 
+retorna ele, 
+ao invés de calcular/fazer tudo novamente.
+
+
+# EX em C:
+  /* sem memoization -> Fibonacci: */
+    function fib(n){
+      if(n == 0 || n == 1){
+          return 1;
+      }else{
+          return fib(n-1) + fib(n-2);
+      }
+    }
+
+  /* com memoization -> Fibonacci: */
+    var computed_fibs = [];
+
+    function fib_memo(n)
+        if(!computed_fibs[n]){
+            computed_fibs[n] = fib(n);
+        }
+        return computed_fibs[n];
+    }
+
+    function fib(n){
+        if(n == 0 || n == 1){
+            return 1;
+        }else{
+            return fib_memo(n-1) + fib_memo(n-2);
+        }
+    }
+
+# EX em JS:
+    var resultados = new Dictionary<string,double>();
+
+    double Soma(double A, double B)
+    {
+        var key = A + "[+]" + B;         // Os parâmetros vão aqui, com um separador distinto.
+
+        // Verifica se já sabemos este resultado
+        if(resultados.ContainsKey(key)) return resultados[key];
+
+        Thread.Sleep(5000);             // Processamento pesado :)
+        var resultado = A + B;          // Calculando A + B ...
+
+        resultados.Add(key, resultado); // Adiciona resultado destes parâmetros no cache
+        return resultado;               // Retorna resultado A + B
+    }
+
+  Soma(3, 4); // Demora.
+  Soma(3, 4); // Retorna rápido o resultado, pois usou o cache
+
+
+
+# MEMOIZATION OU CACHE
+
+  Memoização 
+  é uma forma específica 
+  de armazenamento em cache 
+  que envolve 
+  o armazenamento em cache 
+  do valor de retorno 
+  de uma função 
+  com base em seus parâmetros .
+
+  Cache é um termo mais geral; 
+  por exemplo, o cache HTTP é cache, 
+  mas não memoization.
+
+
+
+# REFERÊNCIAS
+[O que é Memoização](https://pt.stackoverflow.com/questions/33438/o-que-é-memoization)
+[Diferença entre caching e memoization](https://qastack.com.br/programming/6469437/what-is-the-difference-between-caching-and-memoization)
+[O Poder da Memoização](https://medium.com/reactbrasil/o-poder-da-memoização-716fe0e6fd48)

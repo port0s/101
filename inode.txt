@@ -1,0 +1,20 @@
+I-node (Número de nó i),
+uma estrutura de dados 
+que possui informações sobre um determinado: 
+arquivo ou 
+diretório 
+
+EX: 
+
+4,0K -rw-r--r-- 1 rui rui 66 nov 26 15:06 sobre_microsserviços.txt
+
+size Permissões contém umarquivo
+size       = 4,0K
+permissões = -rw-r--r-- 
+arquivo => número de links físicos = 1
+(ou diretório => número de subdiretórios imediatos que ele possui, além de seu diretório pai e ele próprio.)
+dono  = rui 
+grupo = rui 
+size in bytes                     = 66 
+data e hora da últmia modificação = nov 26 15:06 
+nome do arquivo                   = sobre_microsserviços.txt

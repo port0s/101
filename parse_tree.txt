@@ -1,0 +1,39 @@
+Parse tree or 
+Parsing tree or
+derivation tree or 
+concrete syntax tree
+(árvore de análise sintática).
+
+Árvore ordenada e enraizada, 
+que representa a estrutura sintática de uma cadeia de caracteres 
+de acordo com alguma gramática livre de contexto 
+
+
+EX:
+    Gramática: Exp -> Exp * Exp | Exp + Exp | id
+    Programa:  a + b * c 
+               5 + 1 * 12
+
+                  Exp  
+              /    |    \
+            Exp    +    Exp
+             |         / | \
+             |        /  |  \
+            id      Exp  *  Exp 
+                     |       | 
+                    id      id 
+
+
+                  Exp  
+              /    |    \
+            Exp    +    Exp
+             |         / | \
+             |        /  |  \
+             5      Exp  *  Exp 
+                     |       | 
+                     1      12 
+
+https://engineering.mongodb.com/post/transpiling-between-any-programming-languages-part-1
+https://slideplayer.com/slide/6380045/
+https://www.geeksforgeeks.org/syntax-directed-translation-in-compiler-design/
+https://www.ques10.com/p/21838/distinguish-between-1-syntax-tree-and-parse-trees-/

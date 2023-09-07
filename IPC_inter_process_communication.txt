@@ -1,0 +1,138 @@
+Inter Process-Communication  (IPC)
+Comunicação entre Processos
+
+Tópicos a serem atendidos:
+    1. Como um processo passa informação para outro
+    2. Como garantir que dois ou mais processos não entrem em conflito
+    3. Qual a sequência adequada quando houver dependência entre os processos
+
+Aí entram os mecanismos chamados de Comunicação Interprocess 
+(IPC, na sigla em inglês).
+Como os processos não podem conversar entre si
+acessando a memória um do outro,
+eles precisam de algum tipo de mecanismo — e existem vários —
+para conversar entre si quando isso for necessário.
+
+E como quem implementa essa separação entre os processos é o SO,
+então é responsabilidade do SO implementar esses mecanismos também.
+
+O mecanismo mais simples de IPC é simplesmente o uso de arquivos.
+Isso era usado na época dos compiladores C antigos,
+em que o preprocessador pegava o código fonte e escrevia um arquivo
+com esse código preprocessado,
+e então o compilador pegava esse código
+e escrevia um programa assembly correspondente,
+o montador pegava o programa assembly e emitia o código objeto, e
+finalmente o link-editor juntava os códigos objeto e gerava o executável.
+
+Um refinamento disso é o conceito de pipe,
+que é um arquivo que só existe enquanto os programas
+em cada lado do pipe executam e só é visível para eles;
+outro maior são as soquetes de domínio UNIX (UNIX Domain Sockets),
+usadas pelo Wayland para fazer IPC;
+o uso de soquetes
+TCP/IP,
+COM,
+DCOM,
+CORBA,
+mapeamento de memória,
+mensagens Win32,
+são numerosos outros.
+
+Race condition,
+    condição de corrida
+    dois processos que competem pelo mesmo recurso
+    
+    Região crítica
+    parte do programa que leva a uma condição de corrida
+    
+    Condições de execução
+        1. Não pode existir mais de um processo dentro de
+           uma mesma região crítica
+    
+        2. Nada pode ser afirmado sobre a velocidade ou sobre o número de CPUs
+    
+        3. Nenhum processo executado fora da sua região crítica
+           pode bloquear outros processos
+    
+        4. Nenhum processo deve esperar eternamente para entrar
+           em sua região crítica
+    
+    
+                                "A" entra na Regição crítica     "A" deixa a região crítica
+    Process A ─────────────── -                             -
+                              |        |        "B"         |            "B"             |          "B"
+                              |        |   tenta entrar     |  entra na região crítica   | deixa a região crítica
+                              |        | na região crítica  |                            |
+    Process B ─────────────── |        -
+                              |        |  "B" é bloqueado   |                            |
+                              T1       T2                   T3                           T4
+
+
+Espera ociosa
+    testar continuamente uma variável até que algum valor apareça
+    isso consome recurso da CPU
+    
+    Python
+        sleep(10)
+    
+    Java
+        Thread.sleep(10)
+    
+    # EX (Lock = chavemante obrigatório)
+        # condition = true -> critical_region = PROCESSO 1
+        while (1) {
+            while(condition not true);
+            critical_region();
+            condition=false
+            noncritical_region();
+        }
+    
+        # condition = false -> critical_region = PROCESSO 2
+        while (1) {
+            while(condition not false);
+            critical_region();
+            condition=true
+            noncritical_region();
+        }
+    
+    # Solução de Peterson
+        Processo quer entrar numa região crítica,
+            processo verifica se sua entrada é permitida
+            caso contrário, processo ficará num laçoes esperando até que sua entrada seja permitida
+    
+        Consome tempo de CPU e pode gerar efeitos inesperados
+    
+        # EX C
+        #define FALSE 0         /* número de processos */
+        #define TRUE 1
+        #define N
+    
+        int turn;               /* de quem é a vez? */
+        int interested[N];      /* todos os valores 0 (FALSE) */
+    
+        void enter_region(int process)      /* processo é 0 ou 1 */
+        {
+            int other;                      /* número do outro processo */
+    
+            other = 1 - process;            /* o oposto do outro processo */
+            interested[process] = TRUE      /* mostra que você está interessado */
+            turn = process;                 /* altera o valor de turn */
+            while (turn == process && interested[other] == TRUE) /* comando nulo */
+        }
+    
+        void leave_region(int process)      /* processo: quem esta saindo */
+        {
+            interested[process] = FALSE     /* indica a saída da região crítica */
+        }
+
+
+# REFERÊNCIAS
+[Wikipédia - Comunicação entre processos](https://en.wikipedia.org/wiki/Inter-process_communication)
+[Wikipédia - Comunicação entre processos](https://pt.wikipedia.org/wiki/Comunica%C3%A7%C3%A3o_entre_processos)
+[Stack Overflow - O que é comunicação entre processos](https://pt.stackoverflow.com/questions/211430/o-que-é-ipc-inter-process-communication/213994)
+[Comunicação entre processos (Inter-Process Communication - IPC) - Parte 1](https://youtube.com/watch?=oz4jRuSImy0)
+[Comunicação entre processos (Inter-Process Communication - IPC) - Parte 2](https://youtube.com/watch?=K6bE7wqtX6w)
+[Comunicação entre processos (Inter-Process Communication - IPC) - Parte 3](https://youtube.com/watch?=Bz0hTrBlxdM)
+[Comunicação entre processos (Inter-Process Communication - IPC) - Parte 4](https://youtube.com/watch?=yNqvDJkMQc4)
+[Comunicação entre processos (Inter-Process Communication - IPC) - Parte 5](https://youtube.com/watch?=P7lmsKDb304)

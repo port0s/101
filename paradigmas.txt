@@ -1,0 +1,29 @@
+Paradigmas,
+refere-se a um modelo, um estilo, uma forma de fazer algo
+um método formal para realizar tarefas que não estão relacionadas
+diretamente com a linguagem de programação, mas com a maneira
+de resolver o problema do ponto de vista computacional
+
+concorrente
+
+paralelo
+
+imperativo
+    │
+    ├─ procedimental (estruturado, modular)
+    │
+    ├─ orientado a objetos
+    │
+    ├─ orientado a eventos
+    │
+    └─ genérico
+
+declarativo
+    │
+    ├─ lógico
+    │
+    ├─ funcional
+    │
+    ├─ reativo
+    │
+    └─ descritivo

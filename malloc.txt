@@ -1,0 +1,22 @@
+malloc (Memory Allocation)
+Alocação de Memória
+refere-se à execução de gerenciamento manual de memória 
+para alocação de memória dinâmica 
+na linguagem de programação C 
+por meio de um grupo de funções na biblioteca padrão C,
+ou seja, 
+malloc,
+realloc, 
+calloc e 
+free;
+além de new e
+delete
+
+
+Muitas implementações diferentes do mecanismo real de alocação de memória, 
+usado por malloc, estão disponíveis. 
+Seu desempenho varia 
+em tempo de execução e memória necessária.
+
+https://github.com/google/tcmalloc
+https://github.com/jemalloc/jemalloc

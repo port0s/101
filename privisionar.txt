@@ -1,0 +1,10 @@
+Provisionar,
+Provisionamento,
+se refere à adaptação ou 
+implantação de um serviço de telecomunicações 
+para um cliente em particular. 
+
+As empresas carriers ou operadoras 
+provisionam circuitos 
+para conectar uma linha telefônica ou de dados dos clientes 
+na rede de telecomunicações pública.

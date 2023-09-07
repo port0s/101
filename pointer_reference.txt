@@ -1,0 +1,49 @@
+Ponteiro
+é um mecanismo com baixo nível de abstração
+que contém um endereço de memória para um objeto qualquer.
+Esse endereço é o foco dele e
+esse valor pode ser manipulado livremente pela aplicação
+como um dado qualquer.
+Muitas linguagens escondem totalmente sua existência.
+
+Referência
+é um conceito mais abstrato e
+nem sempre visível na linguagem.
+Ela cria um conjunto de dados formado pelo objeto
+que é o seu foco e
+a referência que indica onde o objeto está.
+Essa referência pode ser composta por um ponteiro.
+A manipulação da referência é limitada,
+inclusive porque ela dá preferência para a manipulação do objeto.
+
+---
+
+Ponteiro/referência
+podem ser entendidos como duas formas de observar
+o mesmo fenômeno do "apontamento".
+
+Ponteiros
+observam o fenômeno de apontar a partir da origem do apontamento.
+
+Referências
+observam o fenômeno de apontar a partir do destino do apontamento.
+
+---
+
+Ponteiros
+são variáveis que armazenam endereços de memória e permitem referênciá-los.
+
+Referências
+dizem respeito a objetos ou variáveis específicos,
+abstraindo-se totalmente o lugar e forma de armazenamento.
+
+---
+
+Tudo que fazemos em estrutura de dados usam referências.
+E até que precise explicitar
+que ela é concretizada através de um ponteiro,
+esta deveria ser a nomenclatura preferencial
+
+---
+
+[Qual a diferença entre ponteiro e referência?] (https://pt.stackoverflow.com/questions/56470/qual-a-diferença-entre-ponteiro-e-referência)  

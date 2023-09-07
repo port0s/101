@@ -1,0 +1,13 @@
+escopo compartilhado (testes)
+Por padrão, 
+ele acessará o escopo que é definido 
+no nível dos pais ou 
+no nível do controlador. 
+Portanto, o elemento de mensagem 
+compartilha o escopo do controlador 
+que já está definido pelo controlador pai. 
+Isso é chamado de escopo compartilhado
+
+
+# REFERÊNCIAS
+# https://www.edureka.co/community/63123/what-is-shared-scope-in-directive

@@ -1,0 +1,7 @@
+SFIA (lê-se sofia)
+Skills Framework para a Era da Informação 
+é um modelo para descrever e gerenciar habilidades e competências 
+para profissionais 
+que trabalham em tecnologia da informação e comunicação, 
+engenharia de software e 
+transformação digital

@@ -1,0 +1,16 @@
+Scheduling, 
+agendamento
+é o método pelo qual o trabalho 
+é atribuído aos recursos que completam o trabalho.
+
+Um agendador
+é o que realiza a atividade de agendamento. 
+
+Os agendadores são frequentemente implementados 
+para manter todos os recursos do computador ocupados 
+(como no balanceamento de carga ), 
+permitir que vários usuários compartilhem 
+os recursos do sistema 
+de forma eficaz ou
+para atingir a qualidade de serviço desejada
+

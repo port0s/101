@@ -1,0 +1,37 @@
+semáforo 
+é um tipo de dado variável ou abstrato 
+usado para controlar o acesso a um recurso 
+comum por vários processos e 
+evitar problemas de seção crítica 
+em um sistema simultâneo, 
+como um sistema operacional multitarefa
+
+Isto é, 
+variável inteira 
+que pode ser mudada 
+por apenas duas operações primitivas (atômicas): 
+P e V. 
+P = proberen (testar) e 
+V = verhogen (incrementar).
+
+# P (DOWN ou WAIT -> MUTEX = LOCK)
+  => semáforo decrementado
+    -> processo pode ser, eventualmente,
+       bloqueado e inserido na fila de espera
+       do semáforo
+
+
+# V (UP ou SIGNAL -> MUTEX = UNLOCK)
+  => semáforo incrementado
+    -> processo que aguarda 
+       na fila de espera
+       do semáforo
+       é acordado
+
+
+# MUTEX
+  => exclusão mútua
+    -> semáforo binário
+      assumem somente valores binários 
+      0 = P = LOCK
+      1 = V = UNLOCK

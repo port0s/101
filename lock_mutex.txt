@@ -1,0 +1,6 @@
+cadeado, 
+um lock ou mutex 
+é uma primitiva de sincronização: 
+um mecanismo que impõe limites 
+ao acesso a um recurso 
+quando há muitos threads de execução.

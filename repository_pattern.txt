@@ -1,0 +1,19 @@
+import (vem tudo do outro arquivo)
+
+CLASE variable_of_instance (variável pode acessar todo os métodos públicos da classe)
+
+REGRA DE NEGÓCIO (dentro do construtor):
+
+    REPOSITORY PATTERN:
+        Ao instancear um objeto, cria-se uma base para a esse objeto poder interagir
+
+    EX:
+        class A():
+            func __constructor(this):
+                this.__generate_repository
+
+            func _repository_use(this):
+                this.repository.created()
+
+
+        instance_of_class_A = A()

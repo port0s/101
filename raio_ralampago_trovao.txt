@@ -1,0 +1,3 @@
+Raio -> descarga elétrica
+Relâmpago -> Luz
+Trovão -> Som

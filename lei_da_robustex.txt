@@ -1,0 +1,12 @@
+A Lei de Postel — ou Lei da Robustez —
+é um princípio originalmente descrito como um guia
+para a transferência de dados entre softwares.
+
+Contudo,
+ela é bastante compatível para UX Design também.
+
+O conceito por trás dessa lei é:
+“seja conservador no que você envia e liberal no que você recebe”
+
+# REFERÊNCIAS
+[Leis de UX: Os Princípios de UX Design](https://medium.com/aela/leis-de-ux-os-princ%C3%ADpios-b%C3%A1sicos-de-ux-design-9b9bf3fdb43c)

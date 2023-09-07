@@ -1,0 +1,10 @@
+I/O bound 
+é um termo utilizado para designar 
+os sistemas que fazem uso 
+intensivo de entrada/saída. 
+
+Todos os sistemas operacionais 
+executam processos de entrada e saída, 
+como por exemplo 
+algum usuário querendo copiar um arquivo 
+para o Pen Drive

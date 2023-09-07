@@ -1,0 +1,7 @@
+Patter Match (casamento de padrões),
+ato de verificar a presença de um padrão
+num determinado grupo de dados.
+
+Em Elixir,
+padrão -> lado esquerdo 
+valor -> lado direto 

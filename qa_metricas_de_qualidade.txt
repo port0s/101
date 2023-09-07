@@ -1,0 +1,18 @@
+# Statement Coverage (cobertura de código)
+    ( Nº de linhas exercitadas / N° de linhas ) * 100%
+
+# Branch Coverage
+    ( Nº das decições testadas / N° total de decições ) * 100%
+
+# Coesão
+    Está ligado ao princípio da responsabilidade única
+    códidos coesos -> membros intimamente ligados por objetivo comum
+    fraco ou baixo -> mais que UMA responsabilidade, difícil de manter, difícil de reusar
+
+# Acoplamento
+    Grau de dependência entre artefatos (classe, objeto, framework etc.)
+    forte ou alto -> código difícil de entender, difícil criar testes, difícil de manter
+
+# Manutenibilidade de Software
+    Facilidade em efetuar correções ou novas implementações
+    ( complexidade ciclomática + linhas de código + ( custo de correção / custo de desenvolvimento ) )

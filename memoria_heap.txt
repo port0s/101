@@ -1,0 +1,146 @@
+heap (monte),
+organização flexível de dados na memória
+permite o uso de:
+qualquer área lógica (página) disponível (dinâmico)
+
+área de alocação dinâmica, 
+um espaço reservado para variáveis e dados 
+criados durante a execução do programa (runtime),
+"memória global"
+
+Na heap se aloca
+
+OBS_0:
+  => Alocação
+    -> O sistema operacional 
+       encontra um espaço vazio em algum lugar na heap 
+       que seja grande o suficiente, 
+       marca este espaço como em uso, 
+       e nos retorna um ponteiro, 
+       que é o endereço deste local. 
+       Este processo é chamado de alocar na heap, 
+       e às vezes se abrevia esta frase como apenas "alocação"
+
+    -> Como o ponteiro tem um tamanho fixo e conhecido, 
+       podemos armazená-lo na pilha, 
+       mas quando queremos os dados, 
+       de fato, 
+       temos que seguir o ponteiro.
+
+OBS_1:
+  => heap
+    -> não é uma área da memória,
+       mas sim um cojunto de pequenas
+       áreas da memória
+
+    -> fragmentado por toda a memória
+       por isso, É POSSÍVEL usar toda a memória
+
+    -> costuma ser alocado (apontado) na RAM
+
+    -> ex c: linked list 
+             |> malloc() || calloc() || realloc()
+
+  => desalocação do heap
+    -> conceito abstrato,
+       conteúdo só é apagado por pedido manual ou 
+       quando uma área disponível seja escrita novamente.
+
+    -> ex c: linked list 
+             |> free()
+
+
+# ALOCAÇÂO
+  => Em geral, 
+     você aloca ou desaloca pequenos trechos de memória, 
+     só para a necessidade do dado. 
+
+     Esta alocação pode ocorrer fisicamente 
+     em qualquer parte livre da memória disponível 
+     para seu processo.
+
+     Estas alocações reais, 
+     costumam ocorrer em blocos de tamanho fixo 
+     chamados de páginas
+
+
+# DESALOCAÇÂO
+  => manualmente 
+    -> (correndo o risco de bugs), 
+       embora isto não esteja disponível 
+       para algumas linguagens
+
+  => garbage collector
+    -> que identifica quando uma parte do heap 
+       não é mais necessária
+
+  => Fim da aplicação
+    -> quando uma aplicação se encerra.
+
+
+# CUSTO
+  => alocação
+    -> custa caro
+
+    -> ambientes concorrentes exigem muitas tarefas
+       para garantir a perfeita alocação 
+       pelo sistema operacional
+
+  => desalocação
+    -> pode custar mais caro que a alocação
+
+    -> pode custar mais, em função de uma
+       alocação mais barata
+       tendo esse processo, 
+       sua gerência controlada por várias pilhas
+
+
+# FUNCIONAMENTO
+  => Ponteiros
+    -> o heap é acessado através de ponteiros
+
+  => ex Java:
+               __
+        ______|__| _______________ free
+       |       __
+       |   ___|__| _______________ used   
+       |  |    __
+       |__|___|__| _______________ free   
+       |  |    __
+       |  |___|__| _______________ used
+       |       |
+       |       |
+      free    used
+
+
+      public void Method1()
+      {
+        int x = 4;
+        int y = 2;
+
+        class1 objeto_class1 = new class1();
+      }
+
+      stack        stack               stack                     stack
+    |  x=4  |   |   y=4   |   | objeto_class1 (ref) |   |        return       | 
+                |   x=4   |   |         y=4         |   | objeto_class1 (ref) |
+                              |         x=4         |   |         y=4         |
+                                                    |   |         x=4         |
+
+  |        stack       |      |     heap      |
+  | objeto_class1 (ref)| ---> | objeto_class1 |
+
+  => OBS:
+    -> alocação (referência) necessária,
+       porque o tamanho do objeto 
+       pode ser muito grande para caber no stack
+    
+    -> ou porque ocupa uma parte considerável da memória
+
+    -> ou porque ele pode sobreviver 
+       por mais tempo do que sua função
+
+
+# REFERÊNCIAS
+https://pt.stackoverflow.com/questions/3797/o-que-s%C3%A3o-e-onde-est%C3%A3o-a-stack-e-heap
+https://blog.pantuza.com/artigos/heap-vs-stack

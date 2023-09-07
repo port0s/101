@@ -1,0 +1,11 @@
+MDA Framework,
+Mechanics-Dynamics-Aesthetics Framework,
+Mecânica-Dinâmica-Estética Framework,
+no design de jogos, 
+é uma ferramenta usada para analisar jogos. 
+Ele formaliza o consumo de jogos, 
+dividindo-os em três componentes: 
+Mecânica, Dinâmica e Estética.
+
+# REFERÊNCIAS
+https://mbg3dmind.wordpress.com/2009/08/19/o-util-mda-framework/

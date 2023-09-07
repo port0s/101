@@ -1,0 +1,70 @@
+Protobuf, Buffers de protocolo 
+é o mecanismo extensível de linguagem neutra, 
+plataforma-neutra e extensível 
+do Google 
+para serializar dados estruturados - pense em XML, 
+só que menor, 
+mais rápido e mais simples. 
+Você define: 
+como deseja que seus dados sejam estruturados uma vez?
+em seguida, 
+pode usar o código-fonte gerado 
+para escrever e ler 
+facilmente seus dados estruturados 
+de e para uma variedade de fluxos de dados 
+usando uma variedade de linguagens.
+
+método criado pelo Google 
+de serialização de dados estruturados, 
+agnóstico de linguagem
+
+# QUANDO USAR:
+
+  => NÃO JS EM NAVEGADORES
+      Para casos nos quais os dados 
+      não são consumidos diretamente 
+      por Javascript em navegadores, 
+      como por exemplo em serviços internos
+
+# POR QUE USA?
+  => Schemas (Integridade)
+      normalização dos dados a se transportar
+
+  => Compatibilidade
+      Como os campos do schema são numerados? 1, 2, etc.
+      isso ajuda a evitar a necessidade de verificação
+      de compatibilidade entre versões
+
+  => Menos código duplicado
+      Como protobuf define um schema e gera a classe stub
+      não necessidade de nada terceiro para o processo 
+
+  => Validações
+      As palavras chaves "required", "optional" e "repeated"
+      permitem codificação a nível de schema de dados estruturados
+
+  => Interoperabilidade
+      Crei um schema e gere a classe stub para a sua linguagem 
+
+# FUNCIONAMENTO
+
+  => Primeiro:
+      é definido como se deseja que os dados sejam estruturados
+      em um arquivo de extensão: .proto
+
+  => Segundo:
+      esta definição é compilada 
+      o resultado é um código-fonte 
+      automaticamente gerado na linguagem desejada
+      por exemplo em: C++, C#, Go, Java e Python.
+
+  => Terceiro:
+      código-fonte gerado é utilizado para
+      gravar e ler os dados estruturados.
+
+  => OBS:
+      Sempre que houver mudança na estrutura dos dados, 
+      o ciclo se repetirá.
+
+# REFERÊNCIA
+https://medium.com/trainingcenter/protobuf-uma-alternativa-ao-json-e-xml-a35c66edab4d

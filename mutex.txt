@@ -1,0 +1,10 @@
+mutex (Exclusão Mútua),
+é uma técnica usada em:
+programação concorrente 
+para evitar que 
+dois processos ou 
+threads 
+tenham acesso simultaneamente 
+a um recurso compartilhado, 
+acesso esse denominado por:
+seção crítica

@@ -1,0 +1,37 @@
+Indirection,
+indireção
+é o ato de fazer referência para alguma coisa,
+indiretamente, i.e.,
+através de algo que não seja o seu valor
+uma forma de delegação.
+
+Teorema Fundamental da Engenharia de Software
+
+"Não existe problema na computação que não possa ser resolvido
+com um nível extra de indireção." - David J. Wheeler
+
+"excerto para o problema de níveis de indireção"
+
+EX:
+    variável
+        nome usado para acessar uma posição na memória
+
+    função
+        nome usado para acessar uma posição na memória
+        no qual exite um código
+
+    delegado
+        indireção da indireção, ponteiro para ponteiro
+
+    polimorfismo
+        indireção da indireção
+        referencia uma tabela daquele tipo,
+        depois pega a referência para o método correto
+
+    objeto em memória dinâmica
+        acessa um valor, que indica onde está o objeto
+
+    array simples
+        variável de uma variável,
+        primária -> array como um todo
+        secundária -> elemento individual dentro do array

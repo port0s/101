@@ -1,0 +1,17 @@
+Tipo ponteiro,
+forma especial de armazenar o endereço de memória de outra variável.
+
+Deve estar associado ao tipo da variável apontada.
+ EX:
+    int A;
+    int *ponteiro_A; // Ambas são do tipo inteiro
+
+Ponteiros sempre ocupam o mesmo espaço.
+Não importando o tipo de dado.
+
+
+O QUE FAZ:
+  - Alocação dinâmica de memória
+  - Retorna valores de sub-rotinas na forma de:
+      passagem de parâmetro por valor == passagem de parâmetro por ponteiro
+  - Manipulação de arranjos (arrays) matrizes.

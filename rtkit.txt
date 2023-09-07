@@ -1,0 +1,16 @@
+O RealtimeKit é um serviço do sistema D-Bus 
+que altera a política de agendamento de processos/threads 
+do usuário para SCHED_RR 
+(ou seja, modo de agendamento em tempo real) mediante solicitação. 
+
+Destina-se a ser usado como um mecanismo seguro 
+para permitir que o agendamento em tempo real seja usado 
+por processos normais do usuário. 
+
+No geral, eu não esperaria que ele pegasse o uso da CPU. 
+O que acontece se você deixá-lo seguir seu curso e não reinicializar? 
+Eu ficaria curioso em saber há quanto tempo o daemon rtkit está ativo em qualquer instância.
+
+
+# REFERÊNCIAS
+[O que é rtkit daemon?](https://sobrelinux.info/questions/9763/why-is-rtkit-daemon-eating-100-of-my-cpu)

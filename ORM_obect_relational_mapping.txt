@@ -1,0 +1,17 @@
+Object-Relational Mapping (ORM)
+Mapeamento objeto-relacional
+é uma técnica de programação 
+para converter dados 
+entre sistemas de tipos incompatíveis 
+usando linguagens de programação orientadas a objetos. 
+
+Isso cria, 
+com efeito, 
+um "banco de dados de objetos virtuais" 
+que pode ser usado a partir da linguagem de programação
+
+Pode-se tratar todos os DB
+sem se importar
+com as epecificidades
+de cada DB
+através da linguagem de programação

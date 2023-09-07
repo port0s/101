@@ -1,0 +1,7 @@
+low Code Development Platform,
+plataforma de desenvolvimento de baixo código 
+fornece um ambiente de desenvolvimento 
+usado para criar software aplicativo 
+por meio de uma interface gráfica de usuário, 
+em vez da programação de computador 
+tradicionalmente codificada à mão.

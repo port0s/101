@@ -1,0 +1,117 @@
+MVC (design pattern), 
+Model 
+    (gerencia os dados, lógica e regras da aplicação),
+View 
+    (qualquer representação de informação),
+Controller 
+    (aceita entrada e a converte em comando para o MV).
+
+É padrão de projeto
+focado no reuso de código e
+na separação lógica do programa
+em três camadas (elementos) interconectados.
+
+
+EX: 
+    model 	   = banco de dados
+    view 	  	 = html, css etc.
+    controller = controla as rotas da app 
+                (e os dados que por elas passam)
+
+OBS:
+      Controller  < -- request (https) -- USER
+                e                         
+         a       n                       r 
+         d d      v                     e  
+         n a       i                   s     
+         a d        a                 p   (html)
+         m o                         o    (xml)
+         e s          d             n       
+         d             a           s       
+                        d         e        
+        Model            o                
+                          s     
+                           View
+                           
+ 
+
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    if (!optionsBuilder.IsConfigured)
+    {
+        /*
+         * aviso Para proteger informação potencialmente sensível no seu
+         * cadeia de ligação, deve movê-la para fora do código fonte.
+         * Ver http://go.microsoft.com/fwlink/?LinkId=723263 
+         * para orientação sobre o armazenamento de strings de conecção (connectin string)
+         */
+        optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=MyDb;Trusted_Connection=True;");
+    }
+}
+
+public partial class MyContext : DbContext
+{
+    private readonly string _connectionString;
+
+    public MyContext(DbContextOptions<MyContext> options)
+        : base(options)
+    {
+    }
+
+    public MyContext(IOptions<DbConnectionInfo> dbConnectionInfo)
+    {
+        _connectionString = dbConnectionInfo.Value.MyContext;
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer(_connectionString);
+        }
+    }
+}
+
+public class DbConnectionInfo
+{
+    public string MyContext { get; set; }
+}
+
+/* Exemplo de appsettings.json */
+"ConnectionStrings": {
+    "MyContext": "Server=.\\SQLEXPRESS;Database=MyDb;Trusted_Connection=True;"
+},
+
+services.Configure<DbConnectionInfo>(settings => configuration.GetSection("ConnectionStrings").Bind(settings));
+services.AddScoped<MyContext>();
+
+
+```
+App
+├── Http
+│   └── Controllers
+│       └── MessagesController.php
+├── Models
+│   └── Message.php
+├── Events
+│   └── ChatMessage.php
+```
+
+Cada uma das pastas acima tem uma responsabilidade. Sendo elas:
+
+- Controller -> Receber, processar e responder requisições;
+- Model -> Comunicar com o banco de dados;
+- Event -> Disparar mensageria.
+
+
+## Controler
+- Receber uma requisição;
+- Processar a requisição;
+- Responder o cliente.
+
+
+/*
+ * REFERÊNCIAS
+ *
+ * https://stackoverflow.com/questions/54490808/configure-connection-string-from-controller-asp-net-core-mvc-2-1
+ */

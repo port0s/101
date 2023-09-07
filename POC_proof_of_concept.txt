@@ -1,0 +1,10 @@
+Proof of Concept, prova de conceito (POC)
+é a evidência documentada 
+de que um software pode ser bem-sucedido. 
+Ao fazer uma POC, 
+é possível identificar erros técnicos 
+que possam interferir no funcionamento e 
+nos resultados esperados. 
+Além disso, a prova de conceito permite a solicitação de feedbacks 
+internos e 
+externos.

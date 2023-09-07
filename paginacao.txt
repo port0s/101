@@ -1,0 +1,5 @@
+A paginação, 
+é o processo de dividir um documento 
+em páginas discretas, 
+páginas eletrônicas ou 
+páginas impressas.

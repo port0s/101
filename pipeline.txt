@@ -1,0 +1,7 @@
+Pipeline
+segmentação de instruções 
+é uma técnica de hardware 
+que permite que a CPU 
+realize a busca de: 
+uma ou mais instruções 
+além da próxima a ser executada

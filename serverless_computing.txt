@@ -1,0 +1,8 @@
+serverless computings
+computação sem servidor 
+é um modelo de execução de computação 
+em nuvem 
+em que o provedor de nuvem 
+aloca recursos da máquina sob demanda, 
+cuidando dos servidores 
+em nome de seus clientes

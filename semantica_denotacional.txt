@@ -1,0 +1,54 @@
+Semântica denotacional 
+designa uma abordagem de semântica formal. 
+A semântica formal 
+é uma das áreas de estudo de ciência da computação, 
+preocupada em atribuir significado às construções das linguagens de programação. 
+Nesta abordagem, os significados são modelados por objetos matemáticos, 
+geralmente funções semânticas definidas composicionalmente, 
+que representam o efeito de executar uma estrutura.
+
+Na semântica denotacional o efeito da computação interessa mais que como ela é produzida.
+
+As funções semânticas usadas 
+são funções que mapeiam estruturas da linguagem 
+para funções parciais 
+que representam o comportamento dos programas. 
+Daí vem o nome da abordagem, 
+denotacional, 
+indicando que as funções semânticas denotam os significados 
+das estruturas das linguagens de programação. 
+A abordagem faz uso de cálculo lambda para modelar as funções.
+
+A exigência de composicionalidade destas funções 
+significa que elas podem ser compostas para representar o comportamento de comandos compostos
+
+
+# DISTINÇÂO
+  semântica denotacional é matemática e equacional. 
+  Os detalhes da redução importam menos 
+  do que o resultado final, 
+  que é um valor atemporal 
+  em algum espaço matemático.
+
+  semântica operacional é algorítmica. 
+  Ela se desdobra em etapas individuais no tempo. 
+  O processo faz parte do significado e 
+  o resultado final é apenas uma etapa distinta desse processo.
+
+Às vezes, 
+a diferença pode ser bastante sutil, 
+e pode ser difícil dizer 
+se é apenas uma diferença de estilo ou substância.
+
+No entanto, 
+podemos ver como a definição composicional de Andrej 
+segue mais naturalmente da definição denotacional e 
+também podemos facilmente imaginar uma semântica 
+não confluente e 
+não composicional 
+que ainda atende à definição operacional.
+
+
+# REFERÊNCIAS
+https://qastack.com.br/cstheory/3577/what-constitutes-denotational-semantics
+https://en.wikipedia.org/wiki/Denotational_semantics_of_the_Actor_model#Clinger.27s_Model

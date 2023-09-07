@@ -1,0 +1,33 @@
+Logaritmo iterado (Iterated logarithm)
+Log Star
+é o número de vezes 
+que a função logaritmo 
+deve ser aplicada iterativamente 
+antes que o resultado seja menor ou igual 1. 
+A definição formal mais simples é o resultado desta relação de recorrência:
+
+Pode ser descrita como 
+o número de vezes 
+que é preciso aplicar o logaritmo 
+para obter um valor menor ou igual a 1 um a dois.
+
+log* n := {0 <-> if n <= 1; 1 + log*(log n) <-> if n > 1}
+
+
+# EX Base 2
+        x         |   lg* x
+  (- ininito, 1]  |     0
+      (1, 2]      |     1
+      (2, 4]      |     2
+      (4, 16]     |     3
+    (16, 65536]   |     4
+  (65536, 2^65536]|     5
+
+Bases mais altas 
+fornecem logaritmos iterados menores. 
+Na verdade, 
+a única função comumente usada 
+na teoria da complexidade 
+que cresce mais lentamente é 
+a função inversa de Ackermann.
+

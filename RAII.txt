@@ -1,0 +1,18 @@
+RAII,
+
+Resource
+Aquisition
+Is
+Initialization
+
+A
+aquisição de
+um recurso
+representa a sua
+inicialização
+
+
+fn main()
+{ /* lifetime -> inicio do escopo */
+    println!("Oĺá, mundo!");
+} /* lifetime -> drop fim do escopo */

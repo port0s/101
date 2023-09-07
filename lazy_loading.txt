@@ -1,0 +1,75 @@
+Lazy loading (carregamento assíncrono),
+é um desing pattern (padrão de projeto)
+comumente usado para:
+adiar a inicialização de um objeto até o ponto em que é necessário
+Seu inverso é "eager loading".
+
+
+Existem quatro maneiras comuns de implementar: 
+
+Lazy initialization (inicialização lenta); 
+   -> Com a inicialização lenta, 
+      o objeto a ser carregado lentamente
+      é originalmente definido como nulo. 
+      Cada solicitação para esse objeto,
+      verifica se há nulo e o cria "em tempo real",
+      antes de retorná-lo em primeiro lugar.
+
+   -> EX:  
+        private int myWidgetID;
+        private Widget myWidget = null;
+
+        public Widget MyWidget
+        {
+           get
+           {
+              if (myWidget == null)
+              {
+                myWidget = Widget.Load(myWidgetID);
+              }
+
+              return myWidget;
+           }
+        }
+
+
+Virtual Proxy (proxy virtual); 
+   -> Objeto com a mesma interface do objeto real. 
+      Na primeira vez que um de seus métodos é chamado, 
+      ele carrega o objeto real e então delega.
+
+
+Ghost (fantasma);
+   -> Objeto que deve ser carregado em um estado parcial. 
+      Ele pode conter apenas o identificador do objeto,
+      mas carrega seus próprios dados 
+      na primeira vez que uma de suas propriedades é acessada. 
+      Por exemplo,
+      considere que um usuário está prestes a solicitar conteúdo 
+      por meio de um formulário online. 
+      No momento da criação, 
+      tudo o que sabemos é que o conteúdo será acessado, 
+      mas que ação ou conteúdo é desconhecido
+    
+    -> EX:
+          $userData = array (
+              "UID" = > uniqid(),
+              "requestTime" => microtime(true),
+              "dataType" => "",
+              "request" => ""
+          );
+
+          if (isset($_POST['data']) && $userData) {
+              // ...
+          }
+
+Value Holder (detentor de valor)
+    -> Objeto genérico que lida com:
+       o comportamento de carregamento lento e 
+       aparece no lugar dos campos de dados do objeto
+
+    -> EX:
+          private ValueHolder<Widget> valueHolder;
+
+          public Widget MyWidget => valueHolder.GetValue();
+

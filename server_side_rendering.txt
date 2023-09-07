@@ -1,0 +1,6 @@
+Server side rendering (SSR),
+servidor retorna HTML
+já pronto.
+Sem que seja necessário
+criação da interface no front-end,
+lado cliente

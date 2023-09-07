@@ -1,0 +1,36 @@
+NULL, ou nulo
+é uma constante interna com valor zero.
+
+É o mesmo que o caractere 0
+usado para encerrar strings em C.
+
+Nulo também pode ser o valor de um ponteiro,
+que é igual a zero,
+a menos que a CPU suporte um padrão de bits especial
+para um ponteiro nulo.
+
+---
+
+é a indeterminação de um valor.
+sempre é representado por um ponteiro valendo 0,
+ou seja,
+apontando para um endereço que foi convencionado inválido na memória.
+Assim o código sabe que não pode acessar nada.
+
+Neste contexto o "null" tem um valor, como indicado acima.
+Mas ele não aponta para um objeto válido
+que deveria ter um valor significativo para o tipo que ele representa.
+Ele indica que não há um objeto correspondente para aquele valor.
+
+O "Null" pode ser só o terminador de strings no padrão C
+(o padrão de string mais usado).
+Ele é usado porque é um caractere inválido em qualquer texto
+
+
+# REFERÊNCIAS
+[Definição de NULL](https://www.thoughtco.com/definition-of-null-958118)
+[Por que atribuir null em um ponteiro depois de um free?] (https://pt.stackoverflow.com/questions/304535/por-que-atribuir-null-em-um-ponteiro-depois-de-um-free)  
+[O que realmente significa null?] (https://pt.stackoverflow.com/questions/90363/o-que-realmente-significa-null)  
+[Qual a diferença entre ponteiro e referência?] (https://pt.stackoverflow.com/questions/56470/qual-a-diferença-entre-ponteiro-e-referência)  
+[Como o printf funciona] (https://pt.stackoverflow.com/questions/78189/como-o-printf-funciona)  
+[A função printf] (https://www.dca.fee.unicamp.br/cursos/EA876/apostila/HTML/node131.html)  

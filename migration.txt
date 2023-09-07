@@ -1,0 +1,27 @@
+Migration , migração
+
+
+# SYSTEM MIGRATION
+Migração do sistema envolve a 
+movimentação de um conjunto de instruções ou programas, 
+por exemplo, 
+programas PLC, 
+de uma plataforma para outra, 
+minimizando a reengenharia. 
+A migração de sistemas também pode envolver tempo de inatividade, 
+enquanto o sistema antigo é substituído por um novo
+
+# DATA MIGRATION
+Migração de dados é o processo de 
+selecionar, 
+preparar, 
+extrair, 
+transformar dados e 
+transferi-los permanentemente 
+de um sistema de armazenamento de computador para outro.
+
+# SCHEMA MIGRATION
+Na engenharia de software, 
+a migração de esquema refere-se ao 
+gerenciamento de alterações incrementais reversíveis e 
+controle de versão para esquemas relacionais de banco de dados.
