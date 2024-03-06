@@ -7,6 +7,10 @@ manipulados como uma unidade
 pelo conjunto de instruções ou 
 o hardware do processador. 
 
+tamanho de bits
+que cabem em um processador
+de uma só vez
+
 EX: 
                32 bits
 ┌───────────────────────────────────┐
