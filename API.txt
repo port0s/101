@@ -1,0 +1,20 @@
+Uma API é um conjunto de definições e protocolos
+usado no desenvolvimento e na integração de aplicações.
+
+Em outras palavras,
+ao interagir com um computador ou
+sistema para recuperar informações ou
+executar uma função,
+a API ajudará a comunicar
+o que você quer ao sistema
+para que ele entenda e
+realize o que foi solicitado. 
+
+
+Pense nas APIs
+como um mediador
+entre os usuários ou
+clientes e
+os recursos ou
+serviços web
+que eles querem obte

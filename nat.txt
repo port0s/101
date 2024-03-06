@@ -1,0 +1,2 @@
+1 endereço ip, para 10.000 funcionários
+1 saída, vários na entrada

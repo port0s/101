@@ -1,0 +1,29 @@
+1. Uso de Aspas (" "):
+   - Pesquisar por uma frase exata: "exemplo de pesquisa"
+
+2. Exclusão de Palavras (-):
+   - Excluir palavras específicas da pesquisa: python -snake
+
+3. Operador OR:
+   - Pesquisar por uma ou outra coisa: Python OR Java
+
+4. Operador Site (site:):
+   - Restringir resultados a um site específico: python site:github.com
+
+5. Operador de Intervalo (..):
+   - Especificar um intervalo de números: receitas 2010..2015
+
+6. Uso de Asterisco (*) como Espaço Reservado:
+   - Preencher espaços em branco em uma frase: "uma * no chapeu"
+
+7. Pesquisa de Definição (define:):
+   - Obter definições de palavras: define:serendipidade
+
+8. Operador Relacionado (related:):
+   - Encontrar sites relacionados a um determinado site: related:example.com
+
+9. Pesquisa de Tipo de Arquivo (filetype:):
+   - Encontrar arquivos de um tipo específico: filetype:pdf python tutorial
+
+10. Pesquisa de Conteúdo Específico (intitle: e inurl:):
+   - Encontrar páginas com palavras-chave no título ou na URL: intitle:"melhores práticas" inurl:python
