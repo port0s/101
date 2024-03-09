@@ -1,0 +1,19 @@
+Um data warehouse
+é um banco de dados otimizado
+para analisar dados relacionais
+provenientes de sistemas transacionais
+e aplicações de linha de negócios.
+
+A estrutura de dados e o esquema
+são definidos antecipadamente
+para otimizar consultas SQL rápidas,
+em que os resultados são normalmente usados
+para relatórios e análises operacionais.
+
+Os dados são
+limpos,
+enriquecidos e 
+transformados
+para que possam atuar como a
+“fonte única da verdade”
+em que os usuários podem confiar.

@@ -1,0 +1,37 @@
+conjunto de prática e métricas
+que visão monitorar
+medir e entender o comportamento
+de um sistema
+
+possibilidade de monitoramento próximo do tempo real
+
+ajuda a cooperar os sistemas
+
+agilidade no desemvolvimento
+
+ajuda a cooperar os sistemas
+
+Como começar:
+    Quais os objetivos, quais as kpis
+    quais métricas, quais clas
+    escolha da plataforma
+    como serão os alertas
+    ajustar e otimizar
+
+principais componentes
+logs: 
+    arquivos que registram atividades de um sistema
+métricas: 
+    dados quantitativos 
+    que medem o desempenho e o comportamento de um aplicativo, 
+    usados para detectar problema
+    usada para tomar decisão
+traces:
+    informações que rastreiam a informação de um sistema
+    mais detalhado que um log
+alertas:
+    notificações enviadas quando um evento específico acontece
+
+
+REFERÊNCIAS
+[Uma introdução à observabilidade](https://www.youtube.com/watch?v=QvqDVITXl0Y)
