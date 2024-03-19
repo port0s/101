@@ -1,0 +1,16 @@
+Um lote é uma série de comandos SQL
+que são enviados para o servidor de banco de dados de uma só vez. 
+
+Isso pode ser mais rápido 
+do que enviar cada comando individualmente 
+porque há menos comunicação de rede.
+
+SQLite é um banco de dados incorporado; 
+comandos SQL são executados diretamente pela biblioteca SQLite. 
+
+Não há servidor separado, 
+por isso não faria sentido ter lotes. 
+SQLite não tem esses lotes.
+
+
+https://dba.stackexchange.com/questions/222395/what-is-a-dbas-definition-of-batch

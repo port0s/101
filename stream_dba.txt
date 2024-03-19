@@ -1,0 +1,3 @@
+o processamento de dados em stream 
+lida com dados contínuos 
+e é essencial para transformar de grandes a rápidos.
